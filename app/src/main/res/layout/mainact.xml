@@ -3,5 +3,46 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"/>
+    android:padding="15dp">
 
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_your_name"
+        android:inputType="textPersonName"
+        android:padding="12dp"/>
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_your_age"
+        android:inputType="number"
+        android:padding="12dp"/>
+
+    <EditText
+        android:id="@+id/gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_your_gender"
+        android:inputType="textPersonName"
+        android:padding="12dp"/>
+
+    <Button
+        android:id="@+id/checkButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Check_Eligibility"
+        android:padding="12dp"/>
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"
+        android:layout_marginTop="15dp" />
+
+
+</LinearLayout>

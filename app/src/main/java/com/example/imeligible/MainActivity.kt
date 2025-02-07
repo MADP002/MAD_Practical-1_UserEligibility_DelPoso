@@ -1,47 +1,47 @@
 package com.example.imeligible
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.imeligible.ui.theme.ImEligibleTheme
+
 
 class MainActivity : ComponentActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            ImEligibleTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+        setContentView(R.layout.mainact)
+
+        val nameInput = findViewById<EditText>(R.id.name)
+        val ageInput = findViewById<EditText>(R.id.age)
+        val genderInput = findViewById<EditText>(R.id.gender)
+        val checkButton = findViewById<Button>(R.id.checkButton)
+        val resultText = findViewById<TextView>(R.id.result)
+
+        checkButton.setOnClickListener {
+            val name = nameInput.text.toString().trim()
+            val ageText = ageInput.text.toString().trim()
+            val gender = genderInput.text.toString().trim()
+
+            val age = ageText.toIntOrNull()
+            if (age == null) {
+                Toast.makeText(
+                    this,
+                    "Invalid age. Please enter a valid number.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            if (age >= 18) {
+                resultText.text = "$name,($gender), you can drink. "
+            } else {
+                resultText.text = "$name,($gender), you cannot drink. "
             }
         }
     }
 }
-//change 1
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ImEligibleTheme {
-        Greeting("Android")
-    }
-}
