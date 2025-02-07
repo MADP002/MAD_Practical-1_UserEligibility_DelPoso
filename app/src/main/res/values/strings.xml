@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ImEligible</string>
+    <string name="TextView">TextView</string>
+    <string name="enter_your_name">enter your name</string>
+</resources>
