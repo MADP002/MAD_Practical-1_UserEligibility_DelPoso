@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
             val name = nameInput.text.toString().trim()
             val ageText = ageInput.text.toString().trim()
             val gender = genderInput.text.toString().trim()
-
+//final change
             val age = ageText.toIntOrNull()
             if (age == null) {
                 Toast.makeText(
